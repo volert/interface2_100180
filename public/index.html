@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacecraft Control Panel</title>
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+    <script src="/scripts/scripts.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <img src="/images/rover.png" />
+        <div id="status">
+            <p id="power">Power: <span>Loading...</span></p>
+            <div id="speed-fuel">
+                <p id="speed">Speed: Loading...</p>
+                <p id="fuel">Fuel: Loading...</p>
+            </div>
+            <p id="battery">Battery: Loading...</p>
+            <p id="sensors">Active Sensors: Loading...</p>
+            <p id="minerals">Found Minerals: Loading...</p>
+        </div>
+
+        <div class="input-container">
+            <button onclick="moveSpacecraft()">Move Spacecraft</button>
+            <button onclick="sleepMode()">Sleep Mode</button>
+        </div>
+
+        <div class="input-container">
+            <button onclick="toggleSensor('thermal')">Toggle Thermal</button>
+            <button onclick="toggleSensor('radiation')">Toggle Radiation</button>
+            <button onclick="toggleSensor('proximity')">Toggle Proximity</button>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="speedInput" placeholder="Enter speed">
+            <button onclick="updateSpeed()">Update Speed</button>
+        </div>
+
+        <div class="input-container">
+            <input type="number" id="fuelInput" placeholder="Enter fuel amount">
+            <button onclick="refuel()">Refuel</button>
+        </div>
+
+        <div class="input-container">
+            <select id="powerInput">
+                <option value="ON">ON</option>
+                <option value="OFF">OFF</option>
+            </select>
+            <button onclick="setPower()">Set Power</button>
+        </div>
+
+        <div class="input-container action-form">
+            <select id="actionSelect">
+                <option value="">Select an action...</option>
+                <option value="toggleSensor">Toggle Sensor</option>
+                <option value="move">Move Spacecraft</option>
+                <option value="sleep">Sleep Mode</option>
+            </select>
+            <input type="text" id="actionInfo" placeholder="Additional information">
+            <button onclick="sendCustomAction()">Send Action</button>
+        </div>
+    </div>
+</body>
+
+</html>
